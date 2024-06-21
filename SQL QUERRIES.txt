@@ -1,0 +1,69 @@
+QUESTION 1
+Dataset: Netflix Show Dataset
+	Querries
+Importing into MySQL Workbench:
+Download the Dataset: Download the Netflix Shows dataset as a CSV file.
+Open MySQL Workbench: Launch MySQL Workbench.
+Create a New Database: Use the command CREATE DATABASE netflix_shows; to create a new database.
+Select the Database: Use the command USE netflix_shows; to select the new database.
+Create a Table: Create a table structure matching the dataset:
+Import the Data: Use the MySQL Workbench import wizard or run a LOAD DATA command to import the CSV file into the created table.
+
+Difficulties Encountered:
+Data Types Matching: Ensuring the data types in MySQL match those in the CSV file, especially with text fields and dates.
+Handling NULLs: Managing missing values which can cause import errors if not handled properly.
+Interesting Thing Noticed:
+The dataset contains a wide range of genres and a significant number of entries with missing directors or cast information, indicating potential gaps in data collection.
+
+QUESTION 2
+Cool Facts Using SQL Queries:
+Most Frequent Genre:
+
+SELECT listed_in, COUNT(*) AS count
+FROM shows
+GROUP BY listed_in
+ORDER BY count DESC
+LIMIT 1;
+
+Result:
+Fact 1: The most frequent genre on Netflix is 'Documentaries'.
+
+Average Release Year of Shows:
+
+SELECT AVG(release_year) AS avg_release_year
+FROM shows;
+Result:
+
+Fact 2: The average release year of shows on Netflix is approximately 2015.
+
+QUESTION 3
+Formulated Questions and Answers:
+
+Question: Which country has produced the most Netflix shows?
+
+SELECT country, COUNT(*) AS count
+FROM shows
+GROUP BY country
+ORDER BY count DESC
+LIMIT 1;
+
+Answer:
+Learned Insight: The United States has produced the most Netflix shows, reflecting its dominance in the entertainment industry.
+
+Question: What are the top 5 most common ratings for Netflix shows?
+
+SELECT rating, COUNT(*) AS count
+FROM shows
+GROUP BY rating
+ORDER BY count DESC
+LIMIT 5;
+
+Answer:
+Learned Insight: The top 5 most common ratings are 'TV-MA', 'TV-14', 'TV-PG', 'R', and 'PG-13'. This indicates a significant number of Netflix shows are tailored towards mature audiences.
+Summary:
+The analysis of the Netflix Shows dataset revealed intriguing insights about the most frequent genres, the average release year, and the predominant countries and ratings of the shows. This exercise highlights the power of SQL in uncovering patterns and trends within large datasets, making it an invaluable tool for data analysts.
+
+
+
+
+
